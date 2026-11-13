@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#070A08" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Meme Desk" />
+  <meta name="description" content="Paper-only Solana pump.fun desk dashboard." />
+  <title>Meme Desk</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" type="image/png" href="/icon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="top">
+      <div class="brand">Meme Desk</div>
+      <div class="top-right">
+        <div id="live" class="live idle"><span class="dot"></span><span class="live-label">Idle</span></div>
+        <button type="button" id="control-btn" class="ctrl run" aria-label="Toggle new entries">Run</button>
+      </div>
+    </header>
+
+    <div id="pin-card" class="pin-card hidden">
+      <div class="pin-title">Enter PIN to change Run / Stop</div>
+      <p class="pin-help">This only pauses new paper entries. Open trades can still exit. The PIN is stored on this phone.</p>
+      <input id="pin-input" type="password" inputmode="numeric" autocomplete="off" maxlength="16" placeholder="PIN" />
+      <div class="pin-row">
+        <button type="button" id="pin-cancel" class="ctrl quiet">Cancel</button>
+        <button type="button" id="pin-save" class="ctrl run">Save PIN</button>
+      </div>
+      <div id="pin-error" class="pin-error"></div>
+    </div>
+
+    <div id="ticker" class="ticker"></div>
+
+    <section class="equity-block">
+      <div id="equity-kicker" class="kicker">Equity · €150 start · 8% max size</div>
+      <div id="equity-big" class="equity-big"><span class="euros">€—</span><span class="cents"></span></div>
+      <div class="pnl-row">
+        <div id="pnl" class="pnl">—</div>
+        <div id="mult" class="pill">—</div>
+      </div>
+      <div id="spark" class="spark"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <h2>Desk · 6 agents</h2>
+        <div id="desk-meta" class="meta">waiting for data</div>
+      </div>
+      <div id="agents" class="agents"></div>
+    </section>
+
+    <section class="card">
+      <h2>Logger</h2>
+      <div id="feed" class="feed"><div class="muted">No events yet.</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Killed by rule</h2>
+      <div id="kills" class="kills"><div class="muted">No kills recorded.</div></div>
+    </section>
+
+    <section class="card" id="open-card">
+      <h2>Open positions</h2>
+      <div id="opens" class="trades"><div class="muted">No open paper positions.</div></div>
+    </section>
+
+    <section class="card">
+      <h2>Trades</h2>
+      <div id="trades" class="trades"><div class="muted">No paper trades yet.</div></div>
+    </section>
+
+    <footer id="footer" class="footer">Paper money</footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
